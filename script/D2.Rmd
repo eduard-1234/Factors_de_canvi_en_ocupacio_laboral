@@ -1,0 +1,134 @@
+---
+title: "D2"
+author: "Membres grup 1.1"
+date: "26/2/2025"
+output:
+  pdf_document:
+    fig_width: 10
+    fig_height: 6
+    latex_engine: xelatex
+    keep_tex: false
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Pla de treball
+
+## Diagrama de Gantt
+
+```{r, warning=FALSE, message=FALSE,echo=FALSE}
+library(reshape2)
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+
+dfr <- data.frame(
+  name = factor(c("1) Definició del projecte i assignació", 
+                  "2) Pla de treball", 
+                  "3) Estructura de les dades i descriptiva",
+                  "4) Descriptiva Univariant", 
+                  "5) Descriptiva Bivariant", 
+                  "6) Clustering", 
+                  "7) Profiling", 
+                  "8) ACP de les variables numèriques", 
+                  "9) ACM de les variables qualitatives", 
+                  "10) Anàlisis factorial de dades mixtes (FAMD)", 
+                  "11) Clustering jeràrquic sobre les components factorials retingudes al FAMD", 
+                  "12) Anàlisis Discriminant", 
+                  "13) Anàlisis textual", 
+                  "14) Anàlisi comparativa", 
+                  "15) Conclusions")),
+  inicio = as.Date(c("2025-02-13", "2025-02-20", "2025-02-25", "2025-02-27", "2025-03-01",
+                      "2025-03-06", "2025-03-20", "2025-04-03", "2025-04-10", "2025-04-25",
+                      "2025-05-04", "2025-05-05", "2025-05-07", "2025-05-09", "2025-05-14")),
+  final = as.Date(c("2025-02-19", "2025-03-06", "2025-03-06", "2025-03-05", "2025-03-10",
+                      "2025-03-12", "2025-03-25", "2025-04-12", "2025-04-19", "2025-05-01",
+                      "2025-05-08", "2025-05-10", "2025-05-11", "2025-05-13", "2025-05-16")))
+
+# Creació del diagrama de Gantt
+ggplot(dfr, aes(x = inicio, xend = final, y = name, yend = name, colour = name)) + 
+  theme_bw() +
+  geom_segment(size = 8) +  # Barres del diagrama de Gantt
+  labs(title = 'Diagrama de Gantt', x = 'Data', y = 'Tasques') +  
+  theme(legend.position = "none",  
+        axis.text.x = element_text(angle = 45, hjust = 1)) 
+```
+
+\pagebreak
+
+## Assignment plan
+
+| Membres / Tasques a fer                  |Eduard |Nicolas |Tomás  |Gemma | Anna |Marina | Alla | Guillem |
+|------------------------------------------|:-----:|:------:|:-----:|:---: |:----:|:-----:|:----:|:-------:|
+| **1- Definició del projecte**            |       |        |       |      |      |       |      |         |    
+| - Font de les dades                      |       |        |       |  X   |  X   |       |      |         | 
+| - Referència de les dades                |       |        |       |      |      |   X   |      |         | 
+| - Estructura bàsica de les dades         |       |   X    |       |      |      |       |      |         |
+| **2- Pla de treball**                    |       |        |       |      |      |       |      |         |
+| - Diagrama de Gannt                      |       |        |       |      |      |       |  X   |    X    |
+| - Distribució de tasques                 |   X   |        |   X   |      |      |       |      |         |
+| - Pla de riscos                          |       |        |       |  X   |  X   |       |      |         |
+| **3- Estructura de les dades**           |       |        |       |      |      |       |      |         |
+| - Motivació treball                      |   X   |   X    |       |      |      |       |      |         |
+| - Metadata                               |       |        |       |      |      |   X   |      |         |  
+| **4-Descriptiva univariant**             |       |        |       |      |      |       |      |         | 
+| - Anàlisi descriptiu                     |       |        |   X   |      |      |       |  X   |         |
+| - Descripció processament de dades       |       |        |       |  X   |      |       |      |    X    | 
+| **5- Descriptiva bivariant**             |       |        |       |      |      |       |      |         | 
+| - Anàlisi descritiva bivariant           |   X   |        |       |      |      |       |      |         | 
+| **6-Clustering**                         |       |        |       |      |      |       |      |         |
+| - Clustering particionals                |       |   X    |       |      |  X   |       |      |         |
+| - Clustering jeràrquic                   |       |        |       |      |      |   X   |  X   |         |
+| **7- Profiling**                         |       |        |       |      |      |       |      |         |
+| - Porfiling dels clústers                |       |        |   X   |      |      |       |      |    X    |
+| **8- ACP**                               |       |        |       |      |      |       |      |         |
+| - Projecció individus                    |   X   |        |       |      |      |       |      |         |
+| - Projecció variables numèriques         |       |   X    |       |      |      |       |      |         |
+| - Modalitat variables qualitatives       |       |        |       |      |      |       |      |    X    |
+| **9- ACM**                               |       |        |       |      |      |       |      |         |
+| -Resultats de l'anàlisi                  |       |        |   X   |      |      |       |      |         |
+| -Relacions i oposicions entre variables  |       |        |       |  X   |      |       |      |         |
+| **10- FAMD**                             |       |        |       |      |      |       |      |         |
+| -Resultats de l'anàlisi                  |       |        |       |      |      |   X   |      |         |
+| -Coincidències i discrepàncies amb FAMD  |       |        |       |      |      |       |  X   |         |
+| **11- Clusterning jeràrquic FAMD**       |       |        |       |      |      |       |      |         |
+| -Arbre jeràrquic resultant               |       |        |       |      |  X   |       |      |         |
+| -Profiling dels clústers                 |       |        |       |      |      |       |      |    X    |
+| **12- Anàlisis discriminant**            |       |        |       |      |      |       |      |         |
+| - Resultat anàlisis                      |   X   |        |       |      |      |       |      |         |
+| **13- Anàlisis textual**                 |       |        |       |      |      |       |      |         |
+| -Aplicació mètodes ACM                   |       |   X    |       |      |      |       |      |         |
+| **14- Anàlisi comparativa**              |       |        |       |      |      |       |      |         |
+| -Analitzar coincidències i divergències  |       |        |   X   |      |      |       |      |         |
+| **15- Conclusions**                      |       |        |       |      |      |       |      |         |
+| -Redactar les conclusions finals         |       |        |       |      |  X   |       |      |         |
+
+\pagebreak
+
+
+
+## Pla de riscos
+
+
+
+
+| Causa                 | Risc                                                                                                                                          | Probabilitat | Influència | Efecte | Prevenció                                                                                                                      | Solució                                                                                                                    |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Base de dades         | Que les dades no ens siguin d'utilitat o siguin una mostra no representativa.                                                                 | 3            | 8          | 24     | Utilitzar fonts fiables per a l'obtenció de les dades i assegurar que cumpleixen els nostres requisits.                        | Canviar la base de dades                                                                                                   |
+| Manca de coordinació  | Problemes per coordinar-nos els 8 membres de l'equip i que s'acabin realitzant les tasques de manera no òptima i descoordinada.               | 3            | 6          | 18     | Reunir tots els membres de l'equip per decidir com organitzem, repartim i estructurem les tasques a realitzar per al projecte. | Crear una jerarqui que faciliti i optimitzi la feina i s'eviti que hi hagi problemes de comunicació entre iguals.          |
+| Problemes informàtics | Pèrdua total o parcial del treball per un motiu aleatori no desitjat.                                                                         | 2            | 6          | 12     | Realitzar còpies de seguretat periòdicament.                                                                                   | Recuperar tota la informació i feina realitzada.                                                                           |
+| Problemes personals   | Falta de voluntat o implicació d'un o més membres dins l'equip, i obtenir conseqüentment una desigualtat en el volum de treball entre iguals. | 3            | 3          | 9      | Definir bé i recordar freqüentment quines són les tasques a realitzar de cadascun dels membres del grup.                       | Reunir l'equip per intentar aclarir qualsevol mal entès o per plantejar opcions per resoldre la situació                   |
+| Recursos              | Que cap dels membres tingui accés al material o recursos necessàris per dur a terme les tasques.                                              | 1            | 8          | 8      | Que cadascun dels membres tingui accés a un ordinador o a un dispositiu electrònic amb accés al material necessàri.            | Parlar amb els professors per intentar trobar una solució (treballar a les aules d'informàtica de la facultat o altres...) |
+
+-   La columna *influència* correspon a la valoració d'una escala del 1 al 10, quin impacte pot tenir la causa, sent 1 poc influent i 10 molt influent en el desenvolupament del treball.
+
+-   La columna *probabilitat* correspon a la probabilitat de que esdevingui la causa, sent 1 poc probable i 10 molt probable que esdevingui.
+
+-   L'*efecte* correspon al resultat que s'obté de la multiplicació de l'esperança\* causa.
+
+

@@ -6,7 +6,7 @@ set.seed(123)
 bd<- bd_original[sample(nrow(bd_original), 5000), ]
 
 # Agreguem la variable textual a la base de dades
-# library(readr)
+library(readr)
 opinio <- read_delim("opinions_empleats.csv", delim = ",",
                      show_col_types = FALSE)
 set.seed(123)
