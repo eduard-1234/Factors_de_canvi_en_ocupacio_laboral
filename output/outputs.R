@@ -1,0 +1,1 @@
+Script per anar guardant el gràfics
